@@ -1,0 +1,148 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.model.Donor;
+import com.model.Donor;
+import com.model.Donor;
+import com.model.Donor;
+
+public class DonorDAO {
+	private Connection connection;
+
+	public DonorDAO(Connection connection) {
+		super();
+		this.connection = connection;
+	}
+
+	public boolean registerDonor(Donor donor) {
+		boolean bool = false;
+		try {
+			String query = "insert into donor_details(full_name, birth_date, gender, blood_type, donor_type, email, phone) values(?,?,?,?,?,?,?)";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, donor.getFullName());
+			ps.setString(2, donor.getBirthDate());
+			ps.setString(3, donor.getGender());
+			ps.setString(4, donor.getBloodType());
+			ps.setString(5, donor.getDonorType());
+			ps.setString(6, donor.getEmail());
+			ps.setString(7, donor.getPhone());
+
+			int i = ps.executeUpdate();
+
+			if (i == 1) {
+				bool = true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bool;
+	}
+	
+	public Donor getDonorById(int id) {
+		Donor temp = null;
+
+		try {
+
+			String query = "select * from donor_details where id=?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+
+			ResultSet result = ps.executeQuery();
+			while (result.next()) {
+				temp = new Donor();
+				temp.setId(result.getInt(1));
+				temp.setFullName(result.getString(2));
+				temp.setBirthDate(result.getString(3));
+				temp.setGender(result.getString(4));
+				temp.setBloodType(result.getString(5));
+				temp.setDonorType(result.getString(6));
+				temp.setEmail(result.getString(7));
+				temp.setPhone(result.getString(8));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return temp;
+	}
+
+	public List<Donor> getAllDonors() {
+		List<Donor> donorList = new ArrayList<Donor>();
+		try {
+			String query = "select * from donor_details order by id desc";
+			PreparedStatement ps = connection.prepareStatement(query);
+
+			ResultSet result = ps.executeQuery();
+			while (result.next()) {
+				Donor temp = new Donor();
+				temp.setId(result.getInt(1));
+				temp.setFullName(result.getString(2));
+				temp.setBirthDate(result.getString(3));
+				temp.setGender(result.getString(4));
+				temp.setBloodType(result.getString(5));
+				temp.setDonorType(result.getString(6));
+				temp.setEmail(result.getString(7));
+				temp.setPhone(result.getString(8));
+				donorList.add(temp);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return donorList;
+	}
+
+	public boolean update(Donor donor) {
+		boolean bool = false;
+		try {
+			String query = "update donor_details set full_name=?, birth_date=?, gender=?, blood_type=?, donor_type=?, email=?, phone=? where id=?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, donor.getFullName());
+			ps.setString(2, donor.getBirthDate());
+			ps.setString(3, donor.getGender());
+			ps.setString(4, donor.getBloodType());
+			ps.setString(5, donor.getDonorType());
+			ps.setString(6, donor.getEmail());
+			ps.setString(7, donor.getPhone());
+			ps.setInt(8, donor.getId());
+
+			int i = ps.executeUpdate();
+
+			if (i == 1) {
+				bool = true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bool;
+	}
+
+	public boolean delete(int id) {
+		boolean bool = false;
+		try {
+			String query = "delete from donor_details where id=?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+
+			int i = ps.executeUpdate();
+
+			if (i == 1) {
+				bool = true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bool;
+	}
+
+}
