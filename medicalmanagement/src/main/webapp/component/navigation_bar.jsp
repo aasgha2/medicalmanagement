@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@page isELIgnored="false"%>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
 	<div class="container-fluid">

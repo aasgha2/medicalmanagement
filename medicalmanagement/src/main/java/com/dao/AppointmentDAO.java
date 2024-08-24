@@ -37,7 +37,7 @@ public class AppointmentDAO {
 			ps.setString(13, appt.getDescription());
 			ps.setString(14, appt.getDiagnosis());
 			ps.setString(15, appt.getTreatment());
-			ps.setString(15, appt.getNotes());
+			ps.setString(16, appt.getNotes());
 
 			int i = ps.executeUpdate();
 

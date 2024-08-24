@@ -6,7 +6,7 @@ response.setHeader("Cache-Control", "no-store");
 response.setHeader("Pragma", "no-cache");
 response.setDateHeader("Expires", 0);
 %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@page isELIgnored="false"%>
 <%@page import="com.model.Doctor"%>
 <%@page import="java.util.List"%>

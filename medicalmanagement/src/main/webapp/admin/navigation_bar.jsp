@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="index.jsp"><i
