@@ -173,18 +173,18 @@ public class DoctorDAO {
 			
 			while(result.next()) {
 				d = new Doctor();
-				d.setId(result.getInt(1));
-				d.setFullName(result.getString(2));
-				d.setEmail(result.getString(3));
-				d.setBirthDate(result.getString(4));
-				d.setEducation(result.getString(5));
-				d.setAddress(result.getString(6));
-				d.setCity(result.getString(7));
-				d.setState(result.getString(8));
-				d.setZipCode(result.getString(9));
-				d.setMobilePhone(result.getString(10));
-				d.setHomePhone(result.getString(11));
-				d.setPassword(result.getString(12));
+                d.setId(result.getInt("id"));
+                d.setFullName(result.getString("full_name"));
+                d.setEmail(result.getString("email"));
+                d.setBirthDate(result.getString("birth_date"));
+                d.setEducation(result.getString("education"));
+                d.setAddress(result.getString("address"));
+                d.setCity(result.getString("city"));
+                d.setState(result.getString("state"));
+                d.setZipCode(result.getString("zip_code"));
+                d.setMobilePhone(result.getString("mobile_phone"));
+                d.setHomePhone(result.getString("home_phone"));
+                d.setPassword(result.getString("password"));
 			}
 			
 		} catch (Exception e) {
