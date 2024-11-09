@@ -43,7 +43,7 @@ public class DonorDAO {
 		}
 		return bool;
 	}
-	
+
 	public Donor getDonorById(int id) {
 		Donor temp = null;
 
@@ -56,14 +56,14 @@ public class DonorDAO {
 			ResultSet result = ps.executeQuery();
 			while (result.next()) {
 				temp = new Donor();
-				temp.setId(result.getInt(1));
-				temp.setFullName(result.getString(2));
-				temp.setBirthDate(result.getString(3));
-				temp.setGender(result.getString(4));
-				temp.setBloodType(result.getString(5));
-				temp.setDonorType(result.getString(6));
-				temp.setEmail(result.getString(7));
-				temp.setPhone(result.getString(8));
+				temp.setId(result.getInt("id"));
+				temp.setFullName(result.getString("full_name"));
+				temp.setBirthDate(result.getString("birth_date"));
+				temp.setGender(result.getString("gender"));
+				temp.setBloodType(result.getString("blood_type"));
+				temp.setDonorType(result.getString("donor_type"));
+				temp.setEmail(result.getString("email"));
+				temp.setPhone(result.getString("phone"));
 			}
 
 		} catch (Exception e) {
@@ -82,14 +82,14 @@ public class DonorDAO {
 			ResultSet result = ps.executeQuery();
 			while (result.next()) {
 				Donor temp = new Donor();
-				temp.setId(result.getInt(1));
-				temp.setFullName(result.getString(2));
-				temp.setBirthDate(result.getString(3));
-				temp.setGender(result.getString(4));
-				temp.setBloodType(result.getString(5));
-				temp.setDonorType(result.getString(6));
-				temp.setEmail(result.getString(7));
-				temp.setPhone(result.getString(8));
+				temp.setId(result.getInt("id"));
+				temp.setFullName(result.getString("full_name"));
+				temp.setBirthDate(result.getString("birth_date"));
+				temp.setGender(result.getString("gender"));
+				temp.setBloodType(result.getString("blood_type"));
+				temp.setDonorType(result.getString("donor_type"));
+				temp.setEmail(result.getString("email"));
+				temp.setPhone(result.getString("phone"));
 				donorList.add(temp);
 			}
 

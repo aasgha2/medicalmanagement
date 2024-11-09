@@ -59,11 +59,11 @@
 								<div class="col">
 									<label for="gender" class="form-label">Gender</label> <select
 										required class="form-control" id="gender" name="gender">
-										<option value="male">N/A</option>
-										<option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="male">Other</option>
-										<option value="female">Prefer not to respond</option>
+										<option value="N/A">N/A</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+										<option value="Other">Other</option>
+										<option value="Prefer not to respond">Prefer not to respond</option>
 									</select>
 								</div>
 							</div>
@@ -73,101 +73,101 @@
 								<div class="col">
 									<label for="bloodtype" class="form-label">Blood Type</label> <select
 										required class="form-control" id="bloodtype" name="bloodtype">
-										<option value="male">N/A</option>
-										<option value="male">A+</option>
-										<option value="female">A-</option>
-										<option value="male">B+</option>
-										<option value="female">B-</option>
-										<option value="male">O+</option>
-										<option value="female">O-</option>
-										<option value="male">AB+</option>
-										<option value="female">AB-</option>
+										<option value="N/A">N/A</option>
+										<option value="A+">A+</option>
+										<option value="A-">A-</option>
+										<option value="B+">B+</option>
+										<option value="B-">B-</option>
+										<option value="O+">O+</option>
+										<option value="O-">O-</option>
+										<option value="AB+">AB+</option>
+										<option value="AB-">AB-</option>
 									</select>
 								</div>
 
 								<div class="col">
 									<label for="donortype" class="form-label">Donor Type</label> <select
 										required class="form-control" id="donortype" name="donortype">
-
-										<option value="male">N/A</option>
-										<option value="male">Blood</option>
-										<option value="female">Heart</option>
-										<option value="male">Kidney</option>
-										<option value="female">Liver</option>
-										<option value="female">Other</option>
+										<option value="N/A">N/A</option>
+										<option value="Blood">Blood</option>
+										<option value="Heart">Heart</option>
+										<option value="Kidney">Kidney</option>
+										<option value="Liver">Liver</option>
+										<option value="Other">Other</option>
 									</select>
 								</div>
 							</div>
-							<div class="row mb-3">
-
-								<div>
-									<label class="form-label">Email</label> <input type="text"
-										required name="email" class="form-control">
-								</div>
-								<div class="col">
-									<label class="form-label">Phone</label> <input type="text"
-										required name="phone" class="form-control">
-								</div>
-							</div>
-
-
-							<div class="d-grid gap-2 col-3 mx-auto">
-								<button type="submit" class="btn btn-danger">Submit</button>
-							</div>
-						</form>
 					</div>
+					<div class="row mb-3">
+
+						<div>
+							<label class="form-label">Email</label> <input type="text"
+								required name="email" class="form-control">
+						</div>
+						<div class="col">
+							<label class="form-label">Phone</label> <input type="text"
+								required name="phone" class="form-control">
+						</div>
+					</div>
+
+
+					<div class="d-grid gap-2 col-3 mx-auto">
+						<button type="submit" class="btn btn-danger">Submit</button>
+					</div>
+					</form>
 				</div>
 			</div>
-
-			<div class="align-middle">
-				<div class="card shadow-card">
-					<div class="card-body">
-						<table class="table table-danger table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Full Name</th>
-									<th scope="col">Date of Birth</th>
-									<th scope="col">Gender</th>
-									<th scope="col">Blood Type</th>
-									<th scope="col">Donor Type</th>
-									<th scope="col">Email</th>
-									<th scope="col">Phone</th>
-									<th scope="col">Modify</th>
-								</tr>
-							</thead>
-							<tbody>
-								<%
-								DonorDAO donorDAO = new DonorDAO(DBConnect.getConnection());
-								List<Donor> donorList = donorDAO.getAllDonors();
-								for (Donor d : donorList) {
-								%>
-								<tr>
-									<td><%=d.getFullName()%></td>
-									<td><%=d.getBirthDate()%></td>
-									<td><%=d.getGender()%></td>
-									<td><%=d.getBloodType()%></td>
-									<td><%=d.getDonorType()%></td>
-									<td><%=d.getEmail()%></td>
-									<td><%=d.getPhone()%></td>
-
-									<td><a href="edit_donor.jsp?id=<%=d.getId()%>"
-										class="btn btn-sm btn-info">Edit</a> <a
-										href="../deleteDonor?id=<%=d.getId()%>"
-										class="btn btn-sm btn-danger">Delete</a></td>
-								</tr>
-								<%
-								}
-								%>
-
-
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
-
 		</div>
+
+		<div class="align-middle">
+			<div class="card shadow-card">
+				<div class="card-body">
+					<table class="table table-danger table-hover">
+						<thead>
+							<tr>
+								<th scope="col">Full Name</th>
+								<th scope="col">Date of Birth</th>
+								<th scope="col">Gender</th>
+								<th scope="col">Blood Type</th>
+								<th scope="col">Donor Type</th>
+								<th scope="col">Email</th>
+								<th scope="col">Phone</th>
+								<th scope="col">Modify</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+							DonorDAO donorDAO = new DonorDAO(DBConnect.getConnection());
+							List<Donor> donorList = donorDAO.getAllDonors();
+							for (Donor d : donorList) {
+							%>
+							<tr>
+								<td><%=d.getFullName()%></td>
+								<td><%=d.getBirthDate()%></td>
+								<td><%=d.getGender()%></td>
+								<td><%=d.getBloodType()%></td>
+								<td><%=d.getDonorType()%></td>
+								<td><%=d.getEmail()%></td>
+								<td><%=d.getPhone()%></td>
+
+								<td><a href="edit_donor.jsp?id=<%=d.getId()%>"
+									class="btn btn-sm btn-info">Edit</a> <a
+									href="../deleteDonor?id=<%=d.getId()%>"
+									class="btn btn-sm btn-danger">Delete</a></td>
+							</tr>
+							<%
+							}
+							%>
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
 	</div>
 </body>
 </html>
